@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="dk.ostebaronen.horizontalpager" android:versionCode="1" android:versionName="1.0">
+  <application android:label="HorizontalPager">
+    <activity android:icon="@drawable/icon" android:label="HorizontalPager" android:name="cheesebaron.horizontalpager.Activity1">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <provider android:name="mono.MonoRuntimeProvider" android:initOrder="2147483647" android:authorities="dk.ostebaronen.horizontalpager.__mono_init__" />
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.dk.ostebaronen.horizontalpager" />
+      </intent-filter>
+    </receiver>
+  </application>
+  <uses-sdk android:minSdkVersion="8" />
+  <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

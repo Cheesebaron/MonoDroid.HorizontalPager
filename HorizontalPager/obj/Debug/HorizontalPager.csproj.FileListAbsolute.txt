@@ -1,0 +1,14 @@
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\bin\Debug\HorizontalPager.dll
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\bin\Debug\HorizontalPager.pdb
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\bin\Debug\HorizontalPager.dll.mdb
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\ResolveAssemblyReference.cache
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\HorizontalPager.dll
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\HorizontalPager.pdb
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\res\layout\main.axml
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\res\values\strings.xml
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\res\drawable\icon.png
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\R.cs.flag
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\uploadflags.txt
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\bin\Debug\dk.ostebaronen.horizontalpager.apk
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\bin\Debug\dk.ostebaronen.horizontalpager-Signed.apk
+c:\users\tcielecki\documents\visual studio 2010\Projects\HorizontalPager\HorizontalPager\obj\Debug\android\bin\dk.ostebaronen.horizontalpager.apk
