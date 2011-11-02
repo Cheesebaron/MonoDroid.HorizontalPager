@@ -35,6 +35,7 @@ namespace Cheesebaron.HorizontalPager
             base.OnCreate(bundle);
             Display display = WindowManager.DefaultDisplay;
             HorizontalPager horiPager = new HorizontalPager(this.ApplicationContext, display);
+            horiPager.SetOnScreenSwitchListener(new ScreenChangedListener());
 
             int[] backgroundColors = new int[] { Color.Red, Color.Blue, Color.Cyan, Color.Green, Color.Yellow };
 
@@ -50,6 +51,14 @@ namespace Cheesebaron.HorizontalPager
             }
 
             SetContentView(horiPager);
+        }
+
+        public class ScreenChangedListener : Java.Lang.Object, HorizontalPager.OnScreenSwitchListener
+        {
+            public void OnScreenSwitched(int screen)
+            {
+                System.Diagnostics.Debug.WriteLine("Switched to screen: " + screen);
+            }
         }
     }
 }
