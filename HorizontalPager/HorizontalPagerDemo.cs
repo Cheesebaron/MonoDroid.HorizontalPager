@@ -35,7 +35,13 @@ namespace Cheesebaron.HorizontalPager
             base.OnCreate(bundle);
             Display display = WindowManager.DefaultDisplay;
             HorizontalPager horiPager = new HorizontalPager(this.ApplicationContext, display);
-            horiPager.SetOnScreenSwitchListener(new ScreenChangedListener());
+            horiPager.ScreenChanged += new ScreenChangedEventHandler(horiPager_ScreenChanged);
+
+            //You can also use:
+            /*horiPager.ScreenChanged += (sender, e) =>
+            {
+                System.Diagnostics.Debug.WriteLine("Switched to screen: " + ((HorizontalPager)sender).CurrentScreen);
+            };*/
 
             int[] backgroundColors = new int[] { Color.Red, Color.Blue, Color.Cyan, Color.Green, Color.Yellow };
 
@@ -53,12 +59,9 @@ namespace Cheesebaron.HorizontalPager
             SetContentView(horiPager);
         }
 
-        public class ScreenChangedListener : Java.Lang.Object, HorizontalPager.OnScreenSwitchListener
+        void horiPager_ScreenChanged(object sender, EventArgs e)
         {
-            public void OnScreenSwitched(int screen)
-            {
-                System.Diagnostics.Debug.WriteLine("Switched to screen: " + screen);
-            }
+            System.Diagnostics.Debug.WriteLine("Switched to screen: " + ((HorizontalPager)sender).CurrentScreen);
         }
     }
 }

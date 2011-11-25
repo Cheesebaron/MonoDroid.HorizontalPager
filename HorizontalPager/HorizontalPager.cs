@@ -29,6 +29,8 @@ using Android.Widget;
 
 namespace Cheesebaron.HorizontalPager
 {
+    public delegate void ScreenChangedEventHandler(object sender, EventArgs e);
+
     class HorizontalPager : ViewGroup
     {
         /*
@@ -63,8 +65,20 @@ namespace Cheesebaron.HorizontalPager
         private int mTouchState = TOUCH_STATE_REST;
         private VelocityTracker mVelocityTracker;
         private int mLastSeenLayoutWidth = -1;
-        private OnScreenSwitchListener mOnScreenSwitchListener;
         private Display mDisplay;
+
+        public int CurrentScreen
+        {
+            get { return mCurrentScreen; }
+        }
+
+        public event ScreenChangedEventHandler ScreenChanged;
+
+        protected virtual void OnChanged(EventArgs e)
+        {
+            if (ScreenChanged != null)
+                ScreenChanged(this, e);
+        }
 
         public HorizontalPager(Context context)
             : base(context)
@@ -253,10 +267,13 @@ namespace Cheesebaron.HorizontalPager
                         }
                         else if (deltaX > 0)
                         {
-                            int avalableToScroll = this.GetChildAt(this.ChildCount - 1).Right - scrollX - Width;
+                            if (this.ChildCount >= 1)
+                            {
+                                int avalableToScroll = this.GetChildAt(this.ChildCount - 1).Right - scrollX - Width;
 
-                            if (avalableToScroll > 0)
-                                ScrollBy(Math.Min(avalableToScroll, deltaX), 0);
+                                if (avalableToScroll > 0)
+                                    ScrollBy(Math.Min(avalableToScroll, deltaX), 0);
+                            }
                         }
                     }
                     break;
@@ -302,8 +319,7 @@ namespace Cheesebaron.HorizontalPager
             {
                 mCurrentScreen = Math.Max(0, Math.Min(mNextScreen, this.ChildCount - 1));
 
-                if (mOnScreenSwitchListener != null)
-                    mOnScreenSwitchListener.OnScreenSwitched(mCurrentScreen);
+                OnChanged(EventArgs.Empty);
 
                 mNextScreen = INVALID_SCREEN;
             }
@@ -318,11 +334,6 @@ namespace Cheesebaron.HorizontalPager
             else
                 ScrollTo(mCurrentScreen * Width, 0);
             Invalidate();
-        }
-
-        public void SetOnScreenSwitchListener(OnScreenSwitchListener onScreenSwitchListener)
-        {
-            mOnScreenSwitchListener = onScreenSwitchListener;
         }
 
         private void SnapToDestination()
@@ -357,11 +368,6 @@ namespace Cheesebaron.HorizontalPager
                 mScroller.StartScroll(ScrollX, 0, delta, 0, duration);
 
             Invalidate();
-        }
-
-        public interface OnScreenSwitchListener
-        {
-            void OnScreenSwitched(int screen);
         }
     }
 }
