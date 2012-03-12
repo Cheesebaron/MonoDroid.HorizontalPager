@@ -102,16 +102,19 @@ namespace Cheesebaron.HorizontalPager
         private void Init(Display display)
         {
             mScroller = new Scroller(Context);
-            DisplayMetrics displayMetrics = new DisplayMetrics();
+            float density;
 
             if (display != null)
+            {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
                 display.GetMetrics(displayMetrics);
+                density = displayMetrics.Density;
+            }
             else
             {
-                throw new Exception("Could not get Display Metrics");
+                density = Context.Resources.DisplayMetrics.Density;
             }
-
-            mDensityAdjustedSnapVelocity = (int)(displayMetrics.Density * SNAP_VELOCITY_DIP_PER_SECOND);
+            mDensityAdjustedSnapVelocity = (int)(density * SNAP_VELOCITY_DIP_PER_SECOND);
 
             ViewConfiguration configuration = ViewConfiguration.Get(Context);
             mTouchSlop = configuration.ScaledTouchSlop;
