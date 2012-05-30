@@ -1,5 +1,11 @@
 /*
- * Copyright (C) 2007 The Android Open Source Project
+ * Port to Mono for Android by Tomasz Cielecki (tomasz@ostebaronen.dk) based on
+ * HorizontalPager by Yoni Samlan, who based it on RealViewSwitcher whose license is:
+ *
+ * Copyright (C) 2010 Marc Reichelt
+ *
+ * Work derived from Workspace.java of the Launcher application
+ *  see http://android.git.kernel.org/?p=platform/packages/apps/Launcher.git
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
