@@ -33,8 +33,8 @@ namespace Cheesebaron.HorizontalPager
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            Display display = WindowManager.DefaultDisplay;
-            HorizontalPager horiPager = new HorizontalPager(this.ApplicationContext, display);
+            var display = WindowManager.DefaultDisplay;
+            var horiPager = new HorizontalPager(this.ApplicationContext, display);
             horiPager.ScreenChanged += new ScreenChangedEventHandler(horiPager_ScreenChanged);
 
             //You can also use:
@@ -43,11 +43,11 @@ namespace Cheesebaron.HorizontalPager
                 System.Diagnostics.Debug.WriteLine("Switched to screen: " + ((HorizontalPager)sender).CurrentScreen);
             };*/
 
-            int[] backgroundColors = new int[] { Color.Red, Color.Blue, Color.Cyan, Color.Green, Color.Yellow };
+            var backgroundColors = new Color[] { Color.Red, Color.Blue, Color.Cyan, Color.Green, Color.Yellow };
 
             for (int i = 0; i < 5; i++)
             {
-                TextView textView = new TextView(this.ApplicationContext);
+                var textView = new TextView(this.ApplicationContext);
                 textView.Text = (i + 1).ToString();
                 textView.TextSize = 100;
                 textView.SetTextColor(Color.Black);
